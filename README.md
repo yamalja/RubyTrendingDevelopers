@@ -1,4 +1,4 @@
-# RubyTrendingDevelopers
+# ruby-trending_developers
 
 A simple Sinatra HTTP API example, which returns the most popular Ruby developers on Github by adding the Endpoint **/trending** to the end of the URL.
 The return format is JSON.
