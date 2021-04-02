@@ -13,7 +13,7 @@ The response is going to have the following format:
   ...
 ]
 ```
-The app is based on `github-trending-api` project. For further informations see https://github.com/huchenme/github-trending-api
+The app is based on `github-trending-api` project. For further informations check https://github.com/huchenme/github-trending-api
 
 ## Installing Ruby and Sinatra
 Install Ruby on your system by typing `sudo apt-get install ruby-full` in your terminal.
