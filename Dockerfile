@@ -1,5 +1,5 @@
 # run:  docker build --tag yaljazairi/ruby-trending-developers .
-#       docker run -p 80:9292 yaljazairi/ruby-trending-developers
+#       docker run -p 9292:9292 yaljazairi/ruby-trending-developers
 # check localhost in browser
 #
 # push: docker push yaljazairi/ruby-trending-developers
