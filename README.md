@@ -15,14 +15,19 @@ The response is going to have the following format:
 ```
 The app is based on `github-trending-api` project. For further informations check https://github.com/huchenme/github-trending-api
 
+
 ## Installing Ruby and Sinatra
+
 Install Ruby on your system by typing `sudo apt-get install ruby-full` in your terminal.
 Check if Ruby was installed on the system using: `ruby -v`.
 This should output some information about the installed Ruby version.
 
 ### Installing Sinatra
+
 Just as you would install any other gem, Sinatra is installed like so:
 `gem install sinatra`
+
+**Alternatively** run `bundle install` to install all required Gems.
 
 ## Running the App
 You have to options in order to run the application:
@@ -51,3 +56,5 @@ Here you can see a test sample of printed JSON data.
 #### Note
 As long as the API-server of development down, this app is going to print out a Test-API sample made by the same developer of `github-trending-api`.
 When the dev-server is up again, You're going to get back the daily trending Ruby developers on Github. Stay tuned!
+
+**check** [Apairy](https://githubtrendingapi.docs.apiary.io/#reference/0/developers/list-trending-developers?console=1) to check the URL.
