@@ -12,35 +12,44 @@ require 'json'
 # Class TrendingDev inherates Sinatra::Base
 class TrendingDev < Sinatra::Base
 
-    # This function parse the JSON-Data into Hash, to get the needed elements out of , and then return Results as JSON
-    # @param url :  The URL of the JSON Data
-    # @return :     JSON out of Hash
-    def hash_json(url)
-        # Parsing JSON into Hash
-        response_parsed= JSON.parse(RestClient.get "#{url}")
-            response_parsed.map do |data|
-                {name: data['name'], username: data['username'], type: data['type']}
-            end.to_json
-    end
+  # This function parse the JSON-Data into Hash, to get the needed elements out of , and then return Results as JSON
+  # @param url :  The URL of the JSON Data
+  # @return :     JSON out of Hash
+  def hash_json(url)
+    # Parsing JSON into Hash
+    response_parsed= JSON.parse(RestClient.get "#{url}")
+    response_parsed.map do |data|
+      {name: data['name'], username: data['username'], type: data['type']}
+    end.to_json
+  end
 
-    # Homepage Endpoint
-    get '/' do
-        # "Welcome to my Sinatra Trending-Developers-Program <br>
-        # In order to know who are the best Ruby developers, add the following Endpoint to your URL: \\trending"
-        send_file 'index.html'
-    end
-    # Trending Endpoint
-    get '/trending' do
-        content_type:json
-        language = "ruby".to_s
-        since = "daily".to_s
-        # ============> The Production-API is unfortunately down since october 2020
-        # URL= "https://ghapi.huchen.dev/developers?language="+language+"&since="+since
+  # def hash_json_alternative_method(url)
+  #   hash_array= []
+  #   response_parsed= JSON.parse(RestClient.get "#{url}")
+  #   response_parsed.each do |post|
+  #     hash_array << {:name => post["name"], :username => post["username"], :type => data["type"]}
+  #   end
+  #   return hash_array.to_json
+  # end
 
-        # ===========> A Test-API from the same developer with JSON test Data
-        URL= "https://private-anon-fccb6d71e9-githubtrendingapi.apiary-mock.com/developers?language="+language+"&since="+since
+  # Homepage Endpoint
+  get '/' do
+    # "Welcome to my Sinatra Trending-Developers-Program <br>
+    # In order to know who are the best Ruby developers, add the following Endpoint to your URL: \\trending"
+    send_file 'index.html'
+  end
+  # Trending Endpoint
+  get '/trending' do
+    content_type:json
+    language = "ruby".to_s
+    since = "daily".to_s
+    # ============> The Production-API is unfortunately down since october 2020
+    # URL= "https://ghapi.huchen.dev/developers?language="+language+"&since="+since
 
-        #calling hash_json function
-        hash_json(URL)
-    end
+    # ===========> A Test-API from the same developer with JSON test Data
+    URL= "https://private-anon-fccb6d71e9-githubtrendingapi.apiary-mock.com/developers?language="+language+"&since="+since
+
+    #calling hash_json function
+    hash_json(URL)
+  end
 end
